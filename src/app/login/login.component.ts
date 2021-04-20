@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
+import { LoginRequestPayload } from './login-request.payload';
+import { Router} from '@angular/router';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +12,36 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LoginComponent implements OnInit {
   formGroup:FormGroup;
-  constructor(private authService: AuthenticationService) { }
+  loginRequestPayload: LoginRequestPayload
+  errorWhileLoggingIn: boolean;
+  constructor(private authService: AuthenticationService, private router: Router) {
+    this.loginRequestPayload = {
+      email : '',
+      password : ''
+    };
+   }
 
   ngOnInit(): void {
     this.initForm();
   }
   initForm() {
     this.formGroup = new FormGroup({  
-      email:new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+      email:new FormControl('hakelakhan@yahoo.com', [Validators.required]),
+      password: new FormControl('Lakhan@1234', [Validators.required])
     });
   }
   login() {
-    if(this.formGroup?.valid) {
-      this.authService.login(this.formGroup?.value).subscribe(result => {
+    
+      this.loginRequestPayload.email = this.formGroup.get('email')!.value;
+      this.loginRequestPayload.password = this.formGroup.get('password')!.value;
+
+      this.authService.login(this.loginRequestPayload).subscribe(result => {
+        this.errorWhileLoggingIn = false;
+        this.router.navigateByUrl('/home');
         console.log(result);
         alert("Logged in");
-      });
-    }
+      }, error => {
+        this.errorWhileLoggingIn = true; throwError(error)
+      });    
   }
 }
