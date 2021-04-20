@@ -6,12 +6,15 @@ import { LoginRequestPayload } from './login/login-request.payload';
 import { LoginResponsePayload } from './login/login-response.payload';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
+import { Output, EventEmitter } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-
+  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
+  @Output() username: EventEmitter<string> = new EventEmitter();
 
   constructor(private http:HttpClient, private localStorageService: LocalStorageService) { }
 
@@ -21,9 +24,12 @@ export class AuthenticationService {
   login(data:LoginRequestPayload): Observable<boolean> {
     return this.http.post<LoginResponsePayload>(baseUrl + 'api/auth/login', data).pipe(map(response => {      
       this.localStorageService.store('authenticationToken', response.authenticationToken);
-      this.localStorageService.store('email', response.email);
+      this.localStorageService.store('username', response.username);
       this.localStorageService.store('expiresAt', response.expiresAt);
       this.localStorageService.store('refreshToken', response.refreshToken);      
+
+      this.loggedIn.emit(true);
+      this.username.emit(response.username);
       return true;
     }));      
   }
@@ -34,5 +40,16 @@ export class AuthenticationService {
 
   isLoggedIn(): boolean {
     return this.getJwtToken() != null;
+  }
+
+  logout() {
+    this.localStorageService.clear('authenticationToken');
+    this.localStorageService.clear('username');
+    this.localStorageService.clear('refreshToken');
+    this.localStorageService.clear('expiresAt');
+  }
+
+  getUserName() {
+    return this.localStorageService.retrieve('username');
   }
 }
