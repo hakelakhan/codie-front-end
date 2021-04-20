@@ -14,4 +14,7 @@ export class AuthenticationService {
   signup(data:String) : Observable<any> {
     return this.http.post(baseUrl + 'api/auth/register', data);
   }
+  login(data:String): Observable<any> {
+    return this.http.post(baseUrl + 'api/auth/login', data);
+  }
 }
