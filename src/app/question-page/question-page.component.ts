@@ -10,12 +10,22 @@ import { QuestionsService } from '../questions.service';
 })
 export class QuestionPageComponent implements OnInit {
 
-  question:QuestionsResponse
+  question:QuestionsResponse = {    
+    questionId:'',
+    difficultyLevel:'',
+    postedByUser:'',
+    maxScore:'',
+    associatedTopics:'',
+    title:'',
+    description:'',
+    executionTimeLimitPerTestcase:'',
+    testcases:''
+  }
   constructor(private activateRoute:ActivatedRoute, private questionsService:QuestionsService) { }
 
   ngOnInit(): void {
     var questionId:number = this.activateRoute.snapshot.params.id;
     this.questionsService.getQuestionById(questionId).subscribe(response => {this.question = response;console.log(this.question) });
-  }
+  }    
 
 }

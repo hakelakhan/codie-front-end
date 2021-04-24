@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionsService } from '../questions.service';
+import {CodeEvaluationRequest} from '../code-evaluation-request-payload';
 declare const ace:any;
 @Component({
   selector: 'app-ace-editor',
@@ -7,7 +9,20 @@ declare const ace:any;
 })
 export class AceEditorComponent implements OnInit {
 
-  constructor() { }
+  codeEvaluationrequest:CodeEvaluationRequest;
+  constructor(private questionsService:QuestionsService) {
+
+    this.codeEvaluationrequest = {      
+      lang  : 'C',
+      input : '',
+      source: '#include <stdio.h> int main() { printf("Hello WOrld"); }',      
+      memory_limit: 100000,
+      time_limit: '5',
+      context: '454545445',
+      callback:'5'
+    };
+
+   }
 
   ngOnInit(): void {    
     ace.config.set('basePath', './');    
@@ -16,6 +31,13 @@ export class AceEditorComponent implements OnInit {
     //editor.setTheme("ace/theme/solarized_light");        
     //editor.session.setMode("ace/mode/javascript");
     editor.session.setMode("ace/mode/c_cpp");    
+  }
+
+  submitCodeForEvaluation() {
+    this.questionsService.submitCodeForEvaluation(this.codeEvaluationrequest).subscribe(result => {
+      console.log(result);
+      alert("Submitted Code for Evaluation");
+    });    
   }
 
 }
