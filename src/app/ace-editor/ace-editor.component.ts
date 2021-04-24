@@ -10,8 +10,7 @@ export class AceEditorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {    
-    ace.config.set('basePath', './');
-    //ace.config.setModuleUrl('ace/mode/javascript', 'file-loader!./worker-javascript.js')
+    ace.config.set('basePath', './');    
     var editor = ace.edit("editor");
     //editor.setTheme("ace/theme/monokai");    
     //editor.setTheme("ace/theme/solarized_light");        
