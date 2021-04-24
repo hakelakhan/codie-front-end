@@ -13,7 +13,8 @@ export class HomePageComponent implements OnInit {
   constructor(private questionsService: QuestionsService) { }
 
   ngOnInit(): void {
-    this.questionsService.getListOfQuestions().subscribe(response => {this.questions = response;console.log(this.questions) });    
+    this.questionsService.getListOfQuestions().
+    subscribe(response => {this.questions = response;console.log(this.questions) });    
   }
 
 }

@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-
+import { QuestionPageComponent } from './question-page/question-page.component';
+import { AceEditorComponent } from './ace-editor/ace-editor.component';
+import { TokenInterceptor } from './token-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    HomePageComponent
+    HomePageComponent,
+    QuestionPageComponent,
+    AceEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,14 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot()   
   ],
-  providers: [],
+  providers: [
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
