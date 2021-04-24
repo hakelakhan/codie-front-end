@@ -39,7 +39,10 @@
               "./node_modules/bootstrap/dist/js/bootstrap.js",
               "src/app/ace-editor/ace.js",
               "src/app/ace-editor/theme-monokai.js",              
-              "src/app/ace-editor/mode-javascript.js"              
+              "src/app/ace-editor/mode-javascript.js",
+              "src/app/ace-editor/mode-c_cpp.js",
+              "src/app/ace-editor/theme-solarized_light.js"
+              
             ]
           },
           "configurations": {

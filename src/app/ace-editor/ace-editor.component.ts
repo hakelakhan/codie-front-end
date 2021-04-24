@@ -13,8 +13,10 @@ export class AceEditorComponent implements OnInit {
     ace.config.set('basePath', './');
     //ace.config.setModuleUrl('ace/mode/javascript', 'file-loader!./worker-javascript.js')
     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");    
-    editor.session.setMode("ace/mode/javascript");
+    //editor.setTheme("ace/theme/monokai");    
+    //editor.setTheme("ace/theme/solarized_light");        
+    //editor.session.setMode("ace/mode/javascript");
+    editor.session.setMode("ace/mode/c_cpp");    
   }
 
 }
