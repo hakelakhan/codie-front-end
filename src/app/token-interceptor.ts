@@ -10,7 +10,9 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(private authService:AuthenticationService) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler):        Observable<HttpEvent<any>> {
-        if(req.url.indexOf('login') !== -1) {
+        console.log("Sending Request to " + req.url);
+        if(req.url.indexOf('login') !== -1 || req.url.indexOf('amazonaws') !== -1) {
+            console.log("Allowed request to " + req.url);
             return next.handle(req);
         }
         

@@ -32,5 +32,5 @@ export class QuestionsService {
       console.log(response);
       return response;
     }));      
-  }
+  }  
 }

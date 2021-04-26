@@ -21,11 +21,12 @@ export class QuestionPageComponent implements OnInit {
     executionTimeLimitPerTestcase:'',
     testcases:''
   }
+  questionId:number;  
   constructor(private activateRoute:ActivatedRoute, private questionsService:QuestionsService) { }
 
   ngOnInit(): void {
-    var questionId:number = this.activateRoute.snapshot.params.id;
-    this.questionsService.getQuestionById(questionId).subscribe(response => {this.question = response;console.log(this.question) });
+    this.questionId = this.activateRoute.snapshot.params.id;
+    this.questionsService.getQuestionById(this.questionId).subscribe(response => {this.question = response;console.log(this.question) });
   }    
 
 }

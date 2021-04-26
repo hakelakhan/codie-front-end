@@ -1,9 +1,5 @@
 export interface CodeEvaluationRequest {
+    questionId:number;
     lang:String,
-    source:String,
-    input:String,
-    memory_limit:number,
-    time_limit:String,
-    context:String,
-    callback:String
+    source:String
 }
