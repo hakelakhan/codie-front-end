@@ -14,7 +14,7 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class AuthenticationService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
-  @Output() username: EventEmitter<string> = new EventEmitter();
+  @Output() username: EventEmitter<string> = new EventEmitter();  
 
   constructor(private http:HttpClient, private localStorageService: LocalStorageService) { }
 
@@ -27,9 +27,11 @@ export class AuthenticationService {
       this.localStorageService.store('username', response.username);
       this.localStorageService.store('expiresAt', response.expiresAt);
       this.localStorageService.store('refreshToken', response.refreshToken);      
+      this.localStorageService.store('score', response.score);      
+      
 
       this.loggedIn.emit(true);
-      this.username.emit(response.username);
+      this.username.emit(response.username);      
       return true;
     }));      
   }
@@ -47,6 +49,7 @@ export class AuthenticationService {
     this.localStorageService.clear('username');
     this.localStorageService.clear('refreshToken');
     this.localStorageService.clear('expiresAt');
+    this.localStorageService.clear('score');
   }
 
   getUserName() {

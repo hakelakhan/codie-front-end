@@ -12,14 +12,13 @@ export class QuestionPageComponent implements OnInit {
 
   question:QuestionsResponse = {    
     questionId:'',
-    difficultyLevel:'',
-    postedByUser:'',
-    maxScore:'',
-    associatedTopics:'',
+    difficultyLevel:'',    
     title:'',
     description:'',
-    executionTimeLimitPerTestcase:'',
-    testcases:''
+    associatedTopics:'',
+    solved:false,
+    score: '',
+    maxScore:''  
   }
   questionId:number;  
   constructor(private activateRoute:ActivatedRoute, private questionsService:QuestionsService) { }

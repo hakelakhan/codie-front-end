@@ -10,8 +10,7 @@ declare const ace:any;
 })
 export class AceEditorComponent implements OnInit {
 
-  editor:any;
-  submittedCode:string;
+  editor:any;  
   
   constructor() {   }  
 

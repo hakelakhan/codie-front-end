@@ -23,7 +23,7 @@ export class CodeSubmissionResultComponent implements OnInit {
     var codeEvaluationRequest:CodeEvaluationRequest = {
       'questionId' : this.questionId,
       'lang' : 'c',
-      'source' : '#include <stdio.h>\n int main() { printf("Hello World Lakhan "); return 0;}'
+      'source' : '#include <stdio.h>\n int main() { int a; scanf("%d", &a); printf("%d", a); return 0;}'
     }  
     this.questionsService.submitCodeForEvaluation(codeEvaluationRequest).subscribe(response => this.response = response);    
   }

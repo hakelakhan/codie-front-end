@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean;
-  username: string;
+  username: string;  
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
     this.authService.username.subscribe((data: string) => this.username = data);
     this.isLoggedIn = this.authService.isLoggedIn();
-    this.username = this.authService.getUserName();
+    this.username = this.authService.getUserName();    
   }
   goToUserProfile() {
     this.router.navigateByUrl('/user-profile/' + this.username);

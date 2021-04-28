@@ -1,11 +1,10 @@
 export interface QuestionsResponse {
     questionId:String,
-    difficultyLevel:String,
-    postedByUser:String,
-    maxScore:String,
-    associatedTopics:String,
+    difficultyLevel:String,  
     title:String,
     description:String,
-    executionTimeLimitPerTestcase:String,
-    testcases:String   
+    associatedTopics:String,
+    solved:boolean,
+    score:String,
+    maxScore:String
 }
