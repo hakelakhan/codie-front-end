@@ -13,7 +13,6 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { QuestionPageComponent } from './question-page/question-page.component';
 import { AceEditorComponent } from './ace-editor/ace-editor.component';
 import { TokenInterceptor } from './token-interceptor';
-import { CodeSubmissionResultComponent } from './code-submission-result/code-submission-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +21,7 @@ import { CodeSubmissionResultComponent } from './code-submission-result/code-sub
     SignupComponent,
     HomePageComponent,
     QuestionPageComponent,
-    AceEditorComponent,
-    CodeSubmissionResultComponent
+    AceEditorComponent
   ],
   imports: [
     BrowserModule,

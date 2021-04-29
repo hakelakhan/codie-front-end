@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuestionsService } from '../questions.service';
 import {CodeEvaluationRequest} from '../code-evaluation-request-payload';
 import { CodeEvaluationResponse } from '../code-evaluation-response-payload';
+
+
 declare const ace:any;
 @Component({
   selector: 'app-ace-editor',
@@ -11,8 +13,11 @@ declare const ace:any;
 export class AceEditorComponent implements OnInit {
 
   editor:any;  
+  @Input() questionId:number;  
+  response:CodeEvaluationResponse | null;
   
-  constructor() {   }  
+  
+  constructor(private questionsService:QuestionsService) {   }  
 
   ngOnInit(): void {    
     ace.config.set('basePath', './');    
@@ -25,5 +30,19 @@ export class AceEditorComponent implements OnInit {
   }
   getValue():string {
     return this.editor.getValue();
+  }
+  
+  getLanguage() {
+    return 'c';
+  }
+  submitCodeForEvaluation(){    
+    this.response = null;   
+    var codeEvaluationRequest:CodeEvaluationRequest = {
+      'questionId' : this.questionId,
+      'lang' : this.getLanguage(),
+      'source' : this.getValue()
+    }  
+    
+    this.questionsService.submitCodeForEvaluation(codeEvaluationRequest).subscribe(response => this.response = response);    
   }
 }

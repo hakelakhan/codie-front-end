@@ -1,2 +1,23 @@
 
 <div id="editor"></div>
+
+<input type = "submit" class="btn btn-success" (click) = "submitCodeForEvaluation()" value="Submit Code"/>
+
+
+<div *ngIf="response && response.errorMessage">
+    Compilation failure : {{response.errorMessage}}
+</div>
+<div *ngIf="response && response.allTestcasesPassed">
+    Congratulations All Testcase Passed. Got score of {{response.score}}
+</div>
+<div *ngIf="response && !response.allTestcasesPassed">
+    Testcase passed {{response.passedTestcases}} / {{response.totalTestcases }}. Got score of {{response.score}}
+</div>
+
+
+<div *ngIf="response && !response.errorMessage">    
+    <div *ngFor="let testcaseResult of response.testcaseResults">
+            Output : {{testcaseResult.output}}
+            Input :  {{testcaseResult.input}}
+    </div>
+</div>
