@@ -6,12 +6,13 @@ import {HomePageComponent} from './home-page/home-page.component';
 import { AuthGuard } from './auth.guard';
 import { QuestionPageComponent } from './question-page/question-page.component';
 import { AppComponent } from './app.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 
 const routes: Routes = [
   
-  {path: '', component: LoginComponent},
+  {path: '', component: LandingPageComponent},
   {path: 'login', component:LoginComponent},
   {path: 'signup', component:SignupComponent},
   {path: 'questions/:id', component:QuestionPageComponent, canActivate : [AuthGuard]},  

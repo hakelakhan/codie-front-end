@@ -1,4 +1,67 @@
+nav {
+    color:white;    
+    margin-bottom:50px;
+    margin-top:20px;
+}
+.navbar-brand {
+    text-decoration: none;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 30px;
+    line-height: 1.41em;
+    font-family: lato-light, lato, sans-serif;        
+    color:white;    
+}
 .navbar-brand img {
     height:60px;
     width:184px;
+}
+.navbar {
+    padding:0px;
+}
+.header {    
+    display: flex;
+    height: 60px;
+    align-items: center;        
+}
+.header__logo {
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 40px;
+    line-height: 1.41em;
+    font-family: lato-light, lato, sans-serif;    
+    margin-top:18px;
+}
+.header__search {
+    display: flex;
+    flex:1;
+}
+.header__nav {    
+    display: flex;
+    justify-content: space-evenly;
+}
+nav .navbar-nav li a{
+    color: white !important;
+}
+.header__option {    
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 14px;
+    line-height: 1.79em;
+    font-family: lato-light, lato, sans-serif;
 }
