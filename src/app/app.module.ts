@@ -14,6 +14,15 @@ import { QuestionPageComponent } from './question-page/question-page.component';
 import { AceEditorComponent } from './ace-editor/ace-editor.component';
 import { TokenInterceptor } from './token-interceptor';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +40,14 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxWebstorageModule.forRoot()   
+    NgxWebstorageModule.forRoot(),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatSelectModule
+
   ],
   providers: [
 

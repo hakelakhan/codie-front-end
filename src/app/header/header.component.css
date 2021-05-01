@@ -50,7 +50,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
 }
-nav .navbar-nav li a{
+nav .navbar-nav li a{    
     color: white !important;
 }
 .header__option {    
@@ -63,5 +63,5 @@ nav .navbar-nav li a{
     font-stretch: normal;
     font-size: 14px;
     line-height: 1.79em;
-    font-family: lato-light, lato, sans-serif;
+    font-family: lato-light, lato, sans-serif;    
 }

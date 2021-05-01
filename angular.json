@@ -31,18 +31,55 @@
               "src/assets"
             ],
             "styles": [              
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "src/app/ace-editor/ace.js",
-              "src/app/ace-editor/theme-monokai.js",              
-              "src/app/ace-editor/mode-javascript.js",
+              "src/app/ace-editor/ace.js",              
               "src/app/ace-editor/mode-c_cpp.js",
-              "src/app/ace-editor/theme-solarized_light.js"
-              
+              "src/app/ace-editor/mode-java.js",
+              "src/app/ace-editor/mode-python.js",
+              "src/app/ace-editor/themes/theme-ambiance.js",
+              "src/app/ace-editor/themes/theme-chaos.js",
+              "src/app/ace-editor/themes/theme-chrome.js",
+              "src/app/ace-editor/themes/theme-clouds.js",
+              "src/app/ace-editor/themes/theme-clouds_midnight.js",
+              "src/app/ace-editor/themes/theme-cobalt.js",
+              "src/app/ace-editor/themes/theme-crimson_editor.js",
+              "src/app/ace-editor/themes/theme-dawn.js",
+              "src/app/ace-editor/themes/theme-dracula.js",
+              "src/app/ace-editor/themes/theme-dreamweaver.js",
+              "src/app/ace-editor/themes/theme-eclipse.js",
+              "src/app/ace-editor/themes/theme-github.js",
+              "src/app/ace-editor/themes/theme-gob.js",
+              "src/app/ace-editor/themes/theme-gruvbox.js",
+              "src/app/ace-editor/themes/theme-idle_fingers.js",
+              "src/app/ace-editor/themes/theme-iplastic.js",
+              "src/app/ace-editor/themes/theme-kr_theme.js",
+              "src/app/ace-editor/themes/theme-katzenmilch.js",              
+              "src/app/ace-editor/themes/theme-kuroir.js",
+              "src/app/ace-editor/themes/theme-merbivore.js",
+              "src/app/ace-editor/themes/theme-merbivore_soft.js",
+              "src/app/ace-editor/themes/theme-monokai.js",
+              "src/app/ace-editor/themes/theme-mono_industrial.js",
+              "src/app/ace-editor/themes/theme-nord_dark.js",
+              "src/app/ace-editor/themes/theme-pastel_on_dark.js",
+              "src/app/ace-editor/themes/theme-solarized_dark.js",
+              "src/app/ace-editor/themes/theme-solarized_light.js",
+              "src/app/ace-editor/themes/theme-sqlserver.js",
+              "src/app/ace-editor/themes/theme-terminal.js",
+              "src/app/ace-editor/themes/theme-textmate.js",
+              "src/app/ace-editor/themes/theme-tomorrow.js",
+              "src/app/ace-editor/themes/theme-tomorrow_night.js",
+              "src/app/ace-editor/themes/theme-tomorrow_night_blue.js",
+              "src/app/ace-editor/themes/theme-tomorrow_night_bright.js",
+              "src/app/ace-editor/themes/theme-tomorrow_night_eighties.js",
+              "src/app/ace-editor/themes/theme-twilight.js",
+              "src/app/ace-editor/themes/theme-vibrant_ink.js",
+              "src/app/ace-editor/themes/theme-xcode.js"
             ]
           },
           "configurations": {
@@ -104,6 +141,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []

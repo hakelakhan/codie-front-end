@@ -6,3 +6,21 @@ body {
     padding:0;
     color:white !important;    
 }
+.showcase {
+    background-color: white;
+    border-radius: 2px;
+    color:black;    
+}
+
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    background-color: #0062cc;
+    color:white
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

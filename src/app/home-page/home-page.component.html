@@ -1,4 +1,5 @@
-<div class="container">
+<section class="showcase">
+
 	<div class="row">        		
 		<div class="col-md-9 shadow-lg">        
 			<div  *ngFor="let question of questions" class="row">                 
@@ -6,14 +7,16 @@
                     <div class="row g-0" >                
                       <div class="col-md-9 " >
                         <div class="card-body">
-                          <h5 class="card-title">{{question.title}}</h5>
+                          <h2 class="card-title">{{question.title}}</h2>
                           <p class="card-text">{{question.description}}                            
                           </p>
                           <p class="card-text"><small class="text-muted">
                             
                             DIFFICULTY LEVEL : <i>{{question.difficultyLevel}}</i> 
-                            MAX SCORE : <i>{{question.maxScore}} POINTS</i></small></p>
-                            Current Score <i> {{question.score}}</i>
+                            MAX SCORE : <i>{{question.maxScore}} POINTS</i>
+                            CURRENT SCORE  : <i> {{question.score}}</i></small>
+                          </p>
+                            
                         </div>
                       </div>
 
@@ -30,4 +33,5 @@
             <h4>Checkbox Buttons</h4>
 
 	</div>
-</div>  
+  </div>
+</section>

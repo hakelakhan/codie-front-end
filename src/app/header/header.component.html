@@ -4,9 +4,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">      
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
@@ -15,15 +15,35 @@
         <a class="nav-link" href="#">FAQs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" routerLink="/signup">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
+        <a class="nav-link" routerLink="/signup">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-      
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>      
     </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">      
+      
+    <li class="nav-item" >
+      
+        <a  href="javascript:void(0);">
+        <mat-icon mat-button [matMenuTriggerFor]="afterMenu" aria-hidden="false" aria-label="Account" style= "margin-top:-2px;">account_circle</mat-icon>
+        
+        
+        
+        
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+          <button mat-menu-item class="customize" color="primary">Profile</button>
+          <button mat-menu-item class="customize" color="primary">My Submissions</button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item color="primary" (click) = "logout()">Log out</button>
+        </mat-menu>     
+      </a>
+    </li> 
+    </ul>
+
   </div>
 </nav>
