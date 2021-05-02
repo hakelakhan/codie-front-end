@@ -44,7 +44,7 @@ export class AceEditorComponent implements OnInit {
   
   constructor(private questionsService:QuestionsService) {   
         this.languages = [
-          {value: 'c', id:'c', mode : 'c_cpp', viewValue: 'C', initalCode: '#include <stdio.h>\nint main() {\n\treturn 0;\n}'},
+          {value: 'c', id:'c', mode : 'c_cpp', viewValue: 'C', initalCode: '#include <stdio.h>\nint main() {\n\t//TODO Write your code here\n\treturn 0;\n}'},
           {value: 'cpp', id:'cpp', mode : 'c_cpp', viewValue: 'C++', initalCode: '#include <iostream.h>\nint main() {\n\treturn 0;\n}'},
           {value: 'java', id:'java', mode : 'java', viewValue: 'Java', initalCode: 'public class MainClass {\n\tpublic static void main(String[] args) {\n\t\t\n\t}\n}'},
           {value: 'python3', id:'python',mode : 'python', viewValue: 'Python 3', initalCode: '#include <stdio.h>\nint main() {\n\treturn 0;\n}'},          

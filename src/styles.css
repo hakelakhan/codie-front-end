@@ -23,4 +23,9 @@ body {
     color:white
 }
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.testcase-data {
+    border:1px solid #0062cc;background-color:lightgoldenrodyellow; color:#0062cc; padding:5px;
+}

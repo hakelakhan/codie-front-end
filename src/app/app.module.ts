@@ -20,6 +20,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -46,7 +47,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatMenuModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
 
   ],
   providers: [
