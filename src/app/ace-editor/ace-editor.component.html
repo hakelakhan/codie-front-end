@@ -34,28 +34,100 @@
   
   
 
-
-<input type = "submit" class="btn btn-primary" (click) = "submitCodeForEvaluation()" value="Submit Code"/>
-
-<div *ngIf="!response && codeSubmitted">
-    <mat-progress-bar mode="query"></mat-progress-bar>
-</div>
+  <div class = "mt-2">
+    <input type = "submit" class="btn btn-primary" (click) = "submitCodeForEvaluation()" value="Submit Code"/>
+  </div>
+  
 
 
-<div *ngIf="response && response.errorMessage">
-    Compilation failure : {{response.errorMessage}}
-</div>
-<div *ngIf="response && response.allTestcasesPassed">
-    Congratulations All Testcase Passed. Got score of {{response.score}}
-</div>
-<div *ngIf="response && !response.allTestcasesPassed">
-    Testcase passed {{response.passedTestcases}} / {{response.totalTestcases }}. Got score of {{response.score}}
-</div>
 
 
-<div *ngIf="response && !response.errorMessage">    
-    <div *ngFor="let testcaseResult of response.testcaseResults">
-            Output : {{testcaseResult.output}}
-            Input :  {{testcaseResult.input}}
+<div class = "postSubmission d-flex" style="flex-direction: column">
+  
+    <mat-progress-bar *ngIf="!response && codeSubmitted" mode="query"></mat-progress-bar>
+    
+  <div *ngIf="response && response.errorMessage"  class="alert alert-danger" role="alert">
+      Compilation failure : {{response.errorMessage}}
+  </div>
+  <div *ngIf="response && response.allTestcasesPassed">
+      Congratulations All Testcase Passed. Got score of {{response.score}}
+      data-toggle="modal" data-target=".bd-example-modal-lg"
+  </div>
+  <div *ngIf="response && !response.allTestcasesPassed && !response.errorMessage">
+      <h3>Code compiled successfully. However some testcases failed</h3>
+      <p *ngIf="response.score != 0">
+        Got score of {{response.score}}
+      </p>
+  </div>
+
+  <div *ngIf="response && !response.errorMessage">    
+    
+      <mat-tab-group>        
+          <mat-tab *ngFor="let testcaseResult of response.testcaseResults" >
+            <ng-template mat-tab-label>
+              <mat-icon *ngIf="!testcaseResult.testcasePassed" class="example-tab-icon">close</mat-icon>
+              <mat-icon *ngIf="testcaseResult.testcasePassed" class="example-tab-icon">done</mat-icon>              
+              Testcase {{testcaseResult.id}}
+            </ng-template>
+            <mat-card class="mat-elevation-z0">
+                
+              <mat-card-title>        
+                {{ testcaseResult.testcasePassed == true ? 'Testcase Passed'
+                 : 'Testcase Failed'}}
+              </mat-card-title>                  
+              
+              <mat-card-content>                
+                <p *ngIf="testcaseResult.input">Testcase Input</p>
+                  <div *ngIf="testcaseResult.input" class="testcase-data">                                    
+                    {{testcaseResult.input}}  
+                  </div>   
+  
+                  <p>Expected  Output</p>
+                  
+                  <div class="testcase-data">                
+                    {{testcaseResult.expectedOutput}}
+                  </div>   
+                  
+                  <p>Your Output</p>
+                  
+                  <div class="testcase-data">                
+                    {{testcaseResult.output}}
+                  </div>                  
+                  
+              </mat-card-content>
+            </mat-card>	        
+          </mat-tab>
+
+      </mat-tab-group>
+      
+  </div>
+  <!-- Large modal -->
+<div class="modal fade bd-example-modal-lg"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Congratulations All Testcase Passed</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        
+          
+          <mat-icon style="margin-left:-235px; font-size: 250px; color:green">done</mat-icon>
+          <h3>Solution accepted</h3>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="goToNextChallenge()">Solve next Challenge</button>
+      </div>
     </div>
+  </div>
+</div>
+
+
+
+  
 </div>

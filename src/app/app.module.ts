@@ -21,6 +21,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -48,7 +49,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDividerModule,
     MatProgressBarModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
 
   ],
   providers: [

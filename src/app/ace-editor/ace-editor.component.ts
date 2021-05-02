@@ -2,11 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { QuestionsService } from '../questions.service';
 import {CodeEvaluationRequest} from '../code-evaluation-request-payload';
 import { CodeEvaluationResponse } from '../code-evaluation-response-payload';
-import { ResizeEvent } from 'angular-resizable-element';
+import {Router} from '@angular/router';
+declare var jQuery:any;
 
 
 
 declare const ace:any;
+
+
+
 
 interface Language {
   value: string;    //This is programming language. If language is C . server will evaluate submitted code with C language.
@@ -40,9 +44,10 @@ export class AceEditorComponent implements OnInit {
   selectedProgrammingLanguage: string;
   selectedTheme:string;  
 
+
   
   
-  constructor(private questionsService:QuestionsService) {   
+  constructor(private questionsService:QuestionsService, private router:Router) {   
         this.languages = [
           {value: 'c', id:'c', mode : 'c_cpp', viewValue: 'C', initalCode: '#include <stdio.h>\nint main() {\n\t//TODO Write your code here\n\treturn 0;\n}'},
           {value: 'cpp', id:'cpp', mode : 'c_cpp', viewValue: 'C++', initalCode: '#include <iostream.h>\nint main() {\n\treturn 0;\n}'},
@@ -103,8 +108,7 @@ export class AceEditorComponent implements OnInit {
     //editor.session.setMode("ace/mode/javascript");    
     this.setLanguage(language);    
     this.setTheme(this.selectedTheme);
-    this.setFontSize(this.selectedFontSize);
-
+    this.setFontSize(this.selectedFontSize);        
   }
   setTheme(themeValue:string | undefined) {
     if(themeValue === undefined)
@@ -145,7 +149,16 @@ export class AceEditorComponent implements OnInit {
       'source' : this.getValue()
     }  
     
-    this.questionsService.submitCodeForEvaluation(codeEvaluationRequest).subscribe(response => {this.response = response; this.codeSubmitted = false;});    
+    this.questionsService.submitCodeForEvaluation(codeEvaluationRequest).subscribe(response => {
+      this.response = response; 
+      this.codeSubmitted = false;
+      if(response.allTestcasesPassed) {
+        this.showModal();
+      }
+    });    
+  }
+  showModal():void {
+    jQuery('.bd-example-modal-lg').modal({show:true});
   }
   getLanguageById(id:string):Language | undefined{
     return this.languages.find(e => e.id === id);
@@ -164,5 +177,11 @@ export class AceEditorComponent implements OnInit {
   onChangeFontSize(fontSize:number) {
     console.log("Changed Font Size to " + fontSize);
     this.setFontSize(fontSize);
+  }
+
+
+  goToNextChallenge() {
+    var id:String = '2';    //TODO
+    this.router.navigateByUrl('/questions/' + id);        
   }
 }
