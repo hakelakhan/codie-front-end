@@ -23,9 +23,14 @@ export class QuestionPageComponent implements OnInit {
   questionId:number;  
   constructor(private activateRoute:ActivatedRoute, private questionsService:QuestionsService) { }
 
+
   ngOnInit(): void {
-    this.questionId = this.activateRoute.snapshot.params.id;
-    this.questionsService.getQuestionById(this.questionId).subscribe(response => {this.question = response;console.log(this.question) });
+    this.activateRoute.params.subscribe(({ id }) => this.doSomethingWith(id));
   }    
 
+  doSomethingWith(id:number): void {
+
+    this.questionId = this.activateRoute.snapshot.params.id;
+    this.questionsService.getQuestionById(this.questionId).subscribe(response => {this.question = response;console.log(this.question) });
+  }
 }

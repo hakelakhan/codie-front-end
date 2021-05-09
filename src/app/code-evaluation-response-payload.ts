@@ -8,4 +8,5 @@ export interface CodeEvaluationResponse {
     score : number;
     maxScore:number;
     testcaseResults: TestcaseResult[];
+    updatedUserScore:number;
 }

@@ -51,7 +51,6 @@
   </div>
   <div *ngIf="response && response.allTestcasesPassed">
       Congratulations All Testcase Passed. Got score of {{response.score}}
-      data-toggle="modal" data-target=".bd-example-modal-lg"
   </div>
   <div *ngIf="response && !response.allTestcasesPassed && !response.errorMessage">
       <h3>Code compiled successfully. However some testcases failed</h3>
@@ -121,7 +120,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="goToNextChallenge()">Solve next Challenge</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="goToNextChallenge()">Solve next Challenge</button>
       </div>
     </div>
   </div>

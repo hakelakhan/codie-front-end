@@ -3,6 +3,7 @@ import { QuestionsService } from '../questions.service';
 import {CodeEvaluationRequest} from '../code-evaluation-request-payload';
 import { CodeEvaluationResponse } from '../code-evaluation-response-payload';
 import {Router} from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 declare var jQuery:any;
 
 
@@ -47,7 +48,7 @@ export class AceEditorComponent implements OnInit {
 
   
   
-  constructor(private questionsService:QuestionsService, private router:Router) {   
+  constructor(private questionsService:QuestionsService, private router:Router, private authService: AuthenticationService) {   
         this.languages = [
           {value: 'c', id:'c', mode : 'c_cpp', viewValue: 'C', initalCode: '#include <stdio.h>\nint main() {\n\t//TODO Write your code here\n\treturn 0;\n}'},
           {value: 'cpp', id:'cpp', mode : 'c_cpp', viewValue: 'C++', initalCode: '#include <iostream.h>\nint main() {\n\treturn 0;\n}'},
@@ -110,6 +111,9 @@ export class AceEditorComponent implements OnInit {
     this.setTheme(this.selectedTheme);
     this.setFontSize(this.selectedFontSize);        
   }
+  resetEditor(language:Language) {
+    this.editor.session.setValue(language.initalCode);
+  }
   setTheme(themeValue:string | undefined) {
     if(themeValue === undefined)
       themeValue = this.themes[0].value;
@@ -120,7 +124,7 @@ export class AceEditorComponent implements OnInit {
     if(language === undefined)
       language = this.languages[0];
     this.editor.session.setMode("ace/mode/" + language.mode);
-    this.editor.session.setValue(language.initalCode);
+    this.resetEditor(language);
     this.selectedProgrammingLanguage = language.id;    
   }
   setFontSize(fontSize : number | undefined) {
@@ -152,6 +156,7 @@ export class AceEditorComponent implements OnInit {
     this.questionsService.submitCodeForEvaluation(codeEvaluationRequest).subscribe(response => {
       this.response = response; 
       this.codeSubmitted = false;
+      this.authService.setPointsForUser(this.response.updatedUserScore);
       if(response.allTestcasesPassed) {
         this.showModal();
       }
@@ -160,8 +165,15 @@ export class AceEditorComponent implements OnInit {
   showModal():void {
     jQuery('.bd-example-modal-lg').modal({show:true});
   }
-  getLanguageById(id:string):Language | undefined{
-    return this.languages.find(e => e.id === id);
+  hideModal():void {
+    jQuery('.bd-example-modal-lg').modal({show:false});
+  }
+  getLanguageById(id:string):Language {
+    var language:Language| undefined = this.languages.find(e => e.id === id);
+    if(language == undefined)
+      return this.languages[0];
+    else
+      return language;  
   }
   onChangeLanguage(languageId:string) {    
     console.log("Changed Language Id to " + languageId);
@@ -180,8 +192,15 @@ export class AceEditorComponent implements OnInit {
   }
 
 
+
   goToNextChallenge() {
-    var id:String = '2';    //TODO
-    this.router.navigateByUrl('/questions/' + id);        
+    this.hideModal();
+    var id:number = this.questionsService.getNextUnsolvedQuestionId(this.questionId);
+    console.log("Navigating to question Id " + id);
+    this.questionId = id;    
+    this.codeSubmitted = false;  
+    this.response = null;
+    this.resetEditor(this.getLanguageById(this.selectedProgrammingLanguage));
+    this.router.navigateByUrl('/questions/' + id);
   }
 }

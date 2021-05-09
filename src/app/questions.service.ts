@@ -12,7 +12,11 @@ import { QuestionsResponse } from './home-page/questions-response.payload';
 @Injectable({
   providedIn: 'root'
 })
-export class QuestionsService {  
+export class QuestionsService {
+  getNextUnsolvedQuestionId(questionId: number): number {
+    const nextQuestionId:number = ++questionId;
+    return nextQuestionId;
+  }  
   //headers:HttpHeaders = new HttpHeaders()
     //                    .set('Authorization', authService.getJwtToken());                        
 
