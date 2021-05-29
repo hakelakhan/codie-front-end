@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { QuestionPageComponent } from './question-page/question-page.component';
@@ -23,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 
@@ -36,7 +38,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     HomePageComponent,
     QuestionPageComponent,
     AceEditorComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatSelectModule,
     MatCardModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatFormFieldModule
   ],
   providers: [
 

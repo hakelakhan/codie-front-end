@@ -1,7 +1,9 @@
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { LoginRequestPayload } from '../login/login-request.payload';
 
 @Component({
   selector: 'app-signup',
@@ -10,8 +12,7 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class SignupComponent implements OnInit {
   formGroup:FormGroup;
-
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private router:Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -27,10 +28,23 @@ export class SignupComponent implements OnInit {
     if(this.formGroup?.valid) {
       this.authService.signup(this.formGroup?.value).subscribe(result => {
         console.log(result);
-        alert("Registered");
+        var loginRequestPayload:LoginRequestPayload = {
+          email: this.formGroup?.get('email')?.value,
+          password : this.formGroup?.get('password')?.value
+        }
+        this.login(loginRequestPayload);
+      },
+      error => {
+          alert("Error occured while registering user" + error.value);
       });
     }
   }
-  
+  login(loginRequestPayload:LoginRequestPayload) : void {
+      this.authService.login(loginRequestPayload).subscribe(result => {
+        this.router.navigateByUrl('/home');        
+      }, error => {
+          alert("Error occured while registering user" + error.value);
+      });
+    }  
 
 }

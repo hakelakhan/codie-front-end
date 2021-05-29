@@ -36,16 +36,13 @@
             Points
           </span>
       </li>
+
     <li class="nav-item" >
       
         <a  href="javascript:void(0);">
         <mat-icon mat-button [matMenuTriggerFor]="afterMenu" aria-hidden="false" aria-label="Account" style= "margin-top:-2px;">account_circle</mat-icon>
-        
-        
-        
-        
         <mat-menu #afterMenu="matMenu" xPosition="after">
-          <button mat-menu-item class="customize" color="primary">Profile</button>
+          <button mat-menu-item class="customize" routerLink = "/profile" color="primary">Profile</button>
           <button mat-menu-item class="customize" color="primary">My Submissions</button>
           <mat-divider></mat-divider>
           <button mat-menu-item color="primary" (click) = "logout()">Log out</button>

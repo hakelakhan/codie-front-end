@@ -7,6 +7,8 @@ import { LoginResponsePayload } from './login/login-response.payload';
 import { map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Output, EventEmitter } from '@angular/core';
+import { ProfileInformation } from './profile-page/profile-complete-information';
+import {UpdatableProfileDetails} from './profile-page/profile-update-request';
 
 
 @Injectable({
@@ -78,4 +80,5 @@ export class AuthenticationService {
   setPointsForUser(points:number) {
     this.pointsSource.next(points);
   }
+
 }

@@ -1,0 +1,394 @@
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h2>
+                                        {{profileInformation.updatable.fullName}}
+                                    </h2>
+                                    <h4>
+                                        {{profileInformation.updatable.profession}}
+                                    </h4>
+                                    <p class="proile-rating">Score: <span>
+                                            {{profileInformation.score}}   
+                                    </span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="button" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" data-toggle="modal" data-target="#exampleModalCenter"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Bootsnipp Profile</a><br/>
+                            <a href="">Bootply Profile</a>
+                            <p>PROGRAMMING SKILLS</p>
+                                  <a href = "#" *ngFor="let skill of  profileInformation.programmingSkills">
+                                      {{skill}}
+                                  </a> <br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.fullName}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.email}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.mobile}}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Qualification</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.qualification}}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>College/University</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.university}}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Passed out year</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.passedOutYear}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">                                            
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.profession}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">                                            
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.experienceInYears}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">                                            
+                                            <div class="col-md-6">
+                                                <label>Organization</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.updatable.organization}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> {{profileInformation.updatable.experienceInYears}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Number of Solved Problems</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>
+                                                    {{profileInformation.solvedProblems}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Total Projects</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>230</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>English Level</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Availability</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>6 months</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>
+                                            {{profileInformation.updatable.additionalDetails}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Edit Profile</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Full Name</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >account_circle</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="fullName" name="fullName" type="text" [(ngModel)] = "profileInformation.updatable.fullName" class="form-control" >
+                </div>
+                </div>
+            </div>             
+
+            
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Email</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >alternate_email</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="email" name="email" disabled type="text" class="form-control" [(ngModel)]="profileInformation.email">
+                </div>
+                </div>
+            </div>             
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Mobile</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >phone</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="mobile" name="mobile" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.mobile">
+                
+                </div>
+                </div>
+            </div>             
+            
+
+
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Qualification</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >grade</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="qualification" name="qualification" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.qualification">
+                </div>
+                </div>
+            </div>             
+            
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">College/University</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >school</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="college" name="college" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.university">
+                </div>
+                </div>
+            </div>             
+            
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Pass out year</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >date_range</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="passout" name="passout" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.passedOutYear">
+                </div>
+                </div>
+            </div>             
+            
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">CGPA / Percentage</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >gpp_good</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="cgpa" name="cgpa" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.cgpa">
+                </div>
+                </div>
+            </div>             
+            
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Profession</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >domain</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="domain" name="domain" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.profession">
+                </div>
+                </div>
+            </div>             
+            
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Experince in years</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >badge</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="experienceInYears" name="experienceInYears" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.experienceInYears">
+                </div>
+                </div>
+            </div>             
+            
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Organization</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <mat-icon >account_balance</mat-icon>
+                    </div>
+                    </div> 
+                    <input id="organization" name="organization" type="text" class="form-control" [(ngModel)]="profileInformation.updatable.organization">
+                </div>
+                </div>
+            </div>             
+            
+            <div class="form-group row">
+                <label class="col-4 col-form-label" for="text">Additional Details</label> 
+                <div class="col-8">
+                <div class="input-group">
+                    <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control" [(ngModel)]="profileInformation.updatable.additionalDetails">
+                          </textarea>
+
+
+                </div>
+                </div>
+            </div>             
+            
+            
+
+
+
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click) = "updateProfile()" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
