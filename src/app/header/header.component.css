@@ -1,8 +1,14 @@
 nav {
     color:white;    
-    margin-bottom:50px;
-    margin-top:20px;
+    margin:10px 100px;
 }
+
+@media screen and (max-width: 600px) {
+  nav {
+    margin:20px 0;
+  }
+}
+
 .navbar-brand {
     text-decoration: none;
     font-style: normal;
@@ -14,7 +20,7 @@ nav {
     font-stretch: normal;
     font-size: 30px;
     line-height: 1.41em;
-    font-family: lato-light, lato, sans-serif;        
+    font-family: lato-light, lato, sans-serif !important;        
     color:white;    
 }
 .navbar-brand img {
@@ -39,7 +45,7 @@ nav {
     font-stretch: normal;
     font-size: 40px;
     line-height: 1.41em;
-    font-family: lato-light, lato, sans-serif;    
+    font-family: lato-light, lato, sans-serif !important;    
     margin-top:18px;
 }
 .header__search {
@@ -63,5 +69,5 @@ nav .navbar-nav li a{
     font-stretch: normal;
     font-size: 14px;
     line-height: 1.79em;
-    font-family: lato-light, lato, sans-serif;    
+    font-family: lato-light, lato, sans-serif !important;    
 }

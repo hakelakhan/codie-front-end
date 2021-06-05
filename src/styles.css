@@ -9,7 +9,16 @@ body {
 .showcase {
     background-color: white;
     border-radius: 2px;
-    color:black;    
+    margin: 20px 100px;
+    color:black;
+}
+@media screen and (max-width: 600px) {
+  .showcase {
+    margin:20px 0;
+  }
+  .showcase2 {
+    margin:20px 0;
+  }
 }
 
 .btnSubmit
@@ -28,4 +37,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .testcase-data {
     border:1px solid #0062cc;background-color:lightgoldenrodyellow; color:#0062cc; padding:5px;
+}
+.font_4 {
+    font: normal normal normal 72px/1.25em lato-light,lato,sans-serif !important;
+    color: #150C3F;
+    line-height:1.25em; text-align:center;
+    
+}
+.font_7 {
+    font: normal normal normal 20px/1.67em lato-light,lato,sans-serif !important;
+    color: #150C3F;
+}
+
+.font_0 {
+    font: normal normal normal 30px/1.41em lato-light,lato,sans-serif !important;
+    color: #150C3F;
+}
+.material-icons {
+    vertical-align: -4px; /*Change this to adjust the icon*/
+}
+
+.showcase2 {
+   text-align: center;
+   margin: 20px 100px;
 }
