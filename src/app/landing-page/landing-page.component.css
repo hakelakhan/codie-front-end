@@ -68,4 +68,8 @@
 .profile-card-6:hover .profile-overview {
     padding-bottom: 25px;
 }
-
+.vid >iframe{
+    width: 400px;
+    height: 300px;
+    padding-bottom: 16.25%; 
+}

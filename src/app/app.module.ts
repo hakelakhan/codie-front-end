@@ -25,6 +25,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -39,7 +40,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     QuestionPageComponent,
     AceEditorComponent,
     LandingPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
