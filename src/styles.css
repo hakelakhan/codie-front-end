@@ -9,15 +9,19 @@ body {
 .showcase {
     background-color: white;
     border-radius: 2px;
-    margin: 20px 100px;
+    margin: 90px 100px;
     color:black;
+}
+.showcase2 {
+   text-align: center;
+   margin: 90px 100px;
 }
 @media screen and (max-width: 600px) {
   .showcase {
-    margin:20px 0;
+    margin:40px 0;
   }
   .showcase2 {
-    margin:20px 0;
+    margin:40px 0;
   }
 }
 
@@ -55,9 +59,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .material-icons {
     vertical-align: -4px; /*Change this to adjust the icon*/
-}
-
-.showcase2 {
-   text-align: center;
-   margin: 20px 100px;
 }
