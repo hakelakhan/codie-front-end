@@ -5,7 +5,8 @@
 export const environment = {
   production: false
 };
-export const baseUrl = "http://localhost:8080/";
+//export const baseUrl = "http://localhost:8080/";
+export const baseUrl = "http://codie-app.herokuapp.com/";
 
 /*
  * For easier debugging in development mode, you can import the following file
@@ -15,3 +16,4 @@ export const baseUrl = "http://localhost:8080/";
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+  

@@ -25,6 +25,7 @@
     "angular-resizable-element": "^3.3.5",
     "angular-ui-ace": "^0.2.3",
     "bootstrap": "^4.6.0",
+    "cors": "^2.8.5",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

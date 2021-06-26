@@ -26,6 +26,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 
@@ -41,7 +42,8 @@ import { FooterComponent } from './footer/footer.component';
     AceEditorComponent,
     LandingPageComponent,
     ProfilePageComponent,
-    FooterComponent
+    FooterComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

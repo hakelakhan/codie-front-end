@@ -8,12 +8,14 @@ import { QuestionPageComponent } from './question-page/question-page.component';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 
 const routes: Routes = [
   
   {path: '', component: LandingPageComponent},
+  {path: 'about', component: AboutusComponent},
   {path: 'login', component:LoginComponent},
   {path: 'signup', component:SignupComponent},
   {path: 'questions/:id', component:QuestionPageComponent, canActivate : [AuthGuard]},  

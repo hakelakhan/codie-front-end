@@ -6,7 +6,7 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin:10px 10px;
 }
 
 .profile-card-6 img {
@@ -72,4 +72,5 @@
     width: 400px;
     height: 300px;
     padding-bottom: 16.25%; 
+    margin:10px 10px;
 }
