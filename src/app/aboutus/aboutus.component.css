@@ -1,0 +1,17 @@
+.bg {
+     /* The image used */
+  background-image: url("../../assets/develper-2-final.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.largediv
+{
+    height: 800px;
+    color:#b9084c;
+}
