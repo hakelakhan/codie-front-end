@@ -1,4 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl : "http://codie-app.herokuapp.com/"
 };
-export const baseUrl = "http://localhost:8080/";

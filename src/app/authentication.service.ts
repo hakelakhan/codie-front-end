@@ -1,4 +1,4 @@
-import {baseUrl} from '../environments/environment';
+import {environment} from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, throwError } from 'rxjs';
@@ -18,6 +18,7 @@ export class AuthenticationService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();   
   private pointsSource = new Subject<number>();
+  private baseUrl:string = environment.baseUrl;
   points$ = this.pointsSource.asObservable();
 
    refreshTokenPayload = {
@@ -30,10 +31,10 @@ export class AuthenticationService {
 
 
   signup(data:String) : Observable<any> {
-    return this.http.post(baseUrl + 'api/auth/register', data);
+    return this.http.post(this.baseUrl + 'api/auth/register', data);
   }
   login(data:LoginRequestPayload): Observable<boolean> {
-    return this.http.post<LoginResponsePayload>(baseUrl + 'api/auth/login', data).pipe(map(response => {      
+    return this.http.post<LoginResponsePayload>(this.baseUrl + 'api/auth/login', data).pipe(map(response => {      
       this.localStorageService.store('authenticationToken', response.authenticationToken);
       this.localStorageService.store('username', response.username);
       this.localStorageService.store('expiresAt', response.expiresAt);
@@ -58,7 +59,7 @@ export class AuthenticationService {
   }
 
   logout() {
-     this.http.post('http://localhost:8080/api/auth/logout', this.refreshTokenPayload,
+     this.http.post(this.baseUrl + 'api/auth/logout', this.refreshTokenPayload,
       { responseType: 'text' })
       .subscribe(data => {
         console.log(data);
