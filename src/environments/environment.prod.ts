@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl : "http://codie-app.herokuapp.com/"
+  baseUrl : "https://codie-app.herokuapp.com/"
 };
