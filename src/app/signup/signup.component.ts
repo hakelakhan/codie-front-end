@@ -28,11 +28,12 @@ export class SignupComponent implements OnInit {
     if(this.formGroup?.valid) {
       this.authService.signup(this.formGroup?.value).subscribe(result => {
         console.log(result);
-        var loginRequestPayload:LoginRequestPayload = {
+        /*var loginRequestPayload:LoginRequestPayload = {
           email: this.formGroup?.get('email')?.value,
           password : this.formGroup?.get('password')?.value
         }
-        this.login(loginRequestPayload);
+        this.login(loginRequestPayload);*/
+        alert("Please check activation mail sent");
       },
       error => {
           alert("Error occured while registering user" + error.value);
