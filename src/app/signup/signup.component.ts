@@ -12,12 +12,14 @@ import { LoginRequestPayload } from '../login/login-request.payload';
 })
 export class SignupComponent implements OnInit {
   formGroup:FormGroup;
+  registrationSuccess:boolean = false;  
+
   constructor(private authService: AuthenticationService, private router:Router) { }
 
   ngOnInit(): void {
     this.initForm();
   }
-  initForm() {
+  initForm() {       
       this.formGroup = new FormGroup({
         fullName: new FormControl('', [Validators.required]),
         email:new FormControl('', [Validators.required]),
@@ -33,7 +35,7 @@ export class SignupComponent implements OnInit {
           password : this.formGroup?.get('password')?.value
         }
         this.login(loginRequestPayload);*/
-        alert("Please check activation mail sent");
+        this.registrationSuccess = true;
       },
       error => {
           alert("Error occured while registering user" + error.value);

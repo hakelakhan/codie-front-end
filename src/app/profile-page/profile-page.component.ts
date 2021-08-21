@@ -19,6 +19,8 @@ export class ProfilePageComponent implements OnInit {
         programmingSkills : [],
         score : 0.0,
         solvedProblems : 0,
+        badge:"",
+        profilePictureUri:"",
         updatable : {
           fullName : '',
           mobile : '',

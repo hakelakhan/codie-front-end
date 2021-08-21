@@ -4,3 +4,6 @@
 .postSubmission {
     height:300px;
 }
+.testcase-data {
+    white-space: pre-wrap;
+}

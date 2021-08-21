@@ -24,4 +24,8 @@ export class ProfileService {
         return true;
       }));
   } 
+
+  getTopProfiles(count:number):Observable<ProfileInformation[]> {
+    return this.http.get<ProfileInformation[]>(this.baseUrl + 'api/profile/get-top?count=' + count);
+  }
 }
