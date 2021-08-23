@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
           email: this.formGroup?.get('email')?.value,
           password : this.formGroup?.get('password')?.value
         }
-        this.login(loginRequestPayload);*/
+        this.login(loginRequestPayload); */
         this.registrationSuccess = true;
       },
       error => {
