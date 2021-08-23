@@ -18,7 +18,14 @@ export class QuestionPageComponent implements OnInit {
     associatedTopics:'',
     solved:false,
     score: '',
-    maxScore:''  
+    maxScore:'',
+    testcases: [
+            {
+                id: 1,
+                providedInput: '',
+                expectedOutput: ''
+            }
+        ]
   }
   questionId:number;  
   constructor(private activateRoute:ActivatedRoute, private questionsService:QuestionsService) { }

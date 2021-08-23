@@ -1,6 +1,6 @@
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { LoginRequestPayload } from '../login/login-request.payload';
@@ -49,5 +49,11 @@ export class SignupComponent implements OnInit {
           alert("Error occured while registering user" + error.value);
       });
     }  
+  resendVerificationMail():void {
+    const email:string =  this.formGroup.get('email')?.value;
+
+    this.authService.resendVerificationMail(email);
+
+  }  
 
 }

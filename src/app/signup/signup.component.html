@@ -20,9 +20,11 @@
                                 </div>
 
                                 <div class="alert alert-success" role="alert" *ngIf="registrationSuccess">
-                                  <strong>Registration successful.</strong> Kindly check your inbox for activation email
+                                  <strong>Registration successful.</strong> Kindly check your inbox for activation email 
                                 </div>
-                                
+                                <div *ngIf="registrationSuccess">
+                                  <a [routerLink]="" (click) = "resendVerificationMail()"> Resend verification email </a>
+                                </div>  
                             </form>            
                 </div>
               </div>

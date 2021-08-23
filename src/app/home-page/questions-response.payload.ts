@@ -7,4 +7,10 @@ export interface QuestionsResponse {
     solved:boolean,
     score:String,
     maxScore:String
+    testcases:Testcase[]
+}
+export interface Testcase {
+    id: number,
+    providedInput:string,
+    expectedOutput:string 
 }

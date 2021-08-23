@@ -58,7 +58,17 @@ export class AuthenticationService {
     return this.getJwtToken() != null;
   }
 
+  resendVerificationMail(email:string) {
+    console.log("Requesting to resend verification mail for email id " + email);
+    if(email !== '') {
+      this.http.get(this.baseUrl+'api/auth/account-verification/send-verification-email?email=' + email).subscribe(response => console.log(response));
+    }
+  }
+
   logout() {
+    if(this.refreshTokenPayload.refreshToken !== '') {
+      
+    
      this.http.post(this.baseUrl + 'api/auth/logout', this.refreshTokenPayload,
       { responseType: 'text' })
       .subscribe(data => {
@@ -66,6 +76,7 @@ export class AuthenticationService {
       }, error => {
         throwError(error);
       });
+    }
     this.localStorageService.clear('authenticationToken');
     this.localStorageService.clear('username');
     this.localStorageService.clear('refreshToken');

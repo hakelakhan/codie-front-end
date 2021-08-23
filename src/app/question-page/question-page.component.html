@@ -1,32 +1,55 @@
 <section class="showcase">
-    <div class ="row">
-        <div class = "col-md-6">            
-              <mat-card class="mat-elevation-z0">
-                
-                <mat-card-title>{{question.title}}</mat-card-title>                  
-                
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card class="mat-elevation-z0">
+
+                <mat-card-title>{{question.title}}</mat-card-title>
+
                 <mat-card-content>
                     <mat-card-subtitle>
-                        {{question.description}}                          
-                    
-                        </mat-card-subtitle>
-                        
-                    <p>Sample Output</p>
-                    <div class="testcase-data">                
-                        Hello World
-                    </div>                  
-                    
+                        {{question.description}}
+
+                    </mat-card-subtitle>
+                    <div class="samples" *ngFor="let testcase of question.testcases">
+
+                        <div class="shadow sample">
+                            <div class="sample-input">
+                                <div class="card mb-3 ">
+                                    <div class="card-header">
+                                        Provided Input
+                                    </div>
+                                    <div class= "card-body">
+                                    {{testcase.providedInput}}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="sample-output">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Expected Output
+                                    </div>
+                                    <div class= "card-body">
+                                    {{testcase.expectedOutput}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </mat-card-content>
                 <mat-card-footer>
                     <button class="btn">Get Help</button>
                 </mat-card-footer>
-              </mat-card>
+            </mat-card>
         </div>
-        <div class = "col-md-6">
-            <app-ace-editor  [questionId] = "questionId"></app-ace-editor>        
+        <div class="col-md-6">
+            <app-ace-editor [questionId]="questionId"></app-ace-editor>
         </div>
     </div>
-    
-    
-    
+
+
+
 </section>
