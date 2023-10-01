@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "heroku-postbuild": "ng build --prod",
-    "start": "npm install -g http-server-spa && http-server-spa dist/codie index.html 3020",
-    "build": "ng build --prod && npm install -g http-server-spa",
+    "start": "ng serve --prod",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,6 +27,7 @@
     "angular-ui-ace": "^0.2.3",
     "bootstrap": "^4.6.0",
     "cors": "^2.8.5",
+    "express": "^4.18.2",
     "jquery": "^3.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
