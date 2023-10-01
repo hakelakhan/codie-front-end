@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
-    "start": "http-server-spa dist/codie index.html 3020",
+    "heroku-postbuild": "ng build --prod",
+    "start": "npm install -g http-server-spa && http-server-spa dist/codie index.html 3020",
     "build": "ng build --prod && npm install -g http-server-spa",
     "test": "ng test",
     "lint": "ng lint",
